@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg1">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarDetail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/navy_blue"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextColor="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="24dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- Card Logo -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDetailLogo"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp"
+                app:cardBackgroundColor="#66FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:src="@drawable/logo" />
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardBackgroundColor="#E6FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/navy_blue"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Konsep Aplikasi"
+                        android:textColor="@color/navy_blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:fontFamily="@font/nunito_regular"
+                        android:text="Feelio adalah aplikasi Android pendamping kesehatan mental. Setiap hari pengguna mencatat 'cuaca hati' dengan sekali ketuk, menulis jurnal singkat yang emosinya dibaca model ML di HP, lalu mendapat saran latihan tenang dan melihat polanya di Insight mingguan.\n\nNilai utama: privat, ringan, gratis."
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Latar Belakang"
+                        android:textColor="@color/navy_blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:fontFamily="@font/nunito_regular"
+                        android:text="• 1 dari 3 remaja Indonesia mengalami masalah kesehatan mental (I-NAMHS 2022).\n• Depresi paling tinggi di usia 15-24 tahun (SKI 2023).\n• Mahasiswa menghadapi tekanan tugas dan organisasi, tapi jarang punya kebiasaan memantau perasaan."
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Masalah &amp; Solusi"
+                        android:textColor="@color/navy_blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:fontFamily="@font/nunito_regular"
+                        android:text="Masalah: Sulit mengenali perasaan sendiri, aplikasi serupa banyak yang premium, dan tidak menyadari pola perasaan dari hari ke hari.\n\nSolusi: Check-in cuaca hati di Beranda, jurnal privat dengan deteksi emosi, latihan tenang gratis, dan insight mingguan."
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Target Pengguna"
+                        android:textColor="@color/navy_blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:fontFamily="@font/nunito_regular"
+                        android:text="Mahasiswa &amp; remaja akhir (17-24 tahun) pengguna Android yang aktif dan butuh cara privat serta cepat untuk merawat diri, namun belum siap bercerita ke orang lain atau ke psikolog."
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Fokus Fitur"
+                        android:textColor="@color/navy_blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_regular"
+                        android:text="• Check-in Cuaca Hati\n• Jurnal Refleksi dengan Analisis Emosi (ML)\n• Ruang Tenang (Napas Kotak, grounding, suara alam)\n• Insight Mingguan\n• Profil &amp; Pengaturan"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

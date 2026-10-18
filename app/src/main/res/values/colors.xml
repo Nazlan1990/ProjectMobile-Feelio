@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="navy_blue">#405A7D</color>
+    <color name="teal">#3F8590</color>
+    <color name="seafoam_green">#6DB49C</color>
+    <color name="steel_blue">#5B8FC4</color>
+    <color name="sunflower_yellow">#FBC96C</color>
+    <color name="cream">#FAF9F4</color>
+    <color name="ice_blue">#E3EEF7</color>
+    <color name="midnight_blue">#26324A</color>
+    <color name="crimson">#D64545</color>
+</resources>
