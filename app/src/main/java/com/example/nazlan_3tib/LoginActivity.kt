@@ -31,7 +31,6 @@ class LoginActivity : AppCompatActivity() {
             val user = binding.edtUsername.text.toString()
             val pass = binding.edtPassword.text.toString()
 
-            // Cek apakah input kosong
             if (user.isNotEmpty() && pass.isNotEmpty()) {
 
                 val editor = sharedPref.edit()
