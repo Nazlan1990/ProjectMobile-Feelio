@@ -1,14 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JurnalFragment">
+    android:background="#FAF9F4"
+    tools:context=".jurnal.JurnalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Judul Halaman Jurnal -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tvJurnalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jurnal Refleksi"
+        android:textColor="@color/navy_blue"
+        android:textSize="24sp"
+        android:fontFamily="@font/nunito_bold"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <!-- Teks Deskripsi Singkat -->
+    <TextView
+        android:id="@+id/tvJurnalDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:text="Bagaimana cuaca hatimu hari ini? Coba tuliskan agar terasa lebih lega."
+        android:textColor="#555555"
+        android:textSize="14sp"
+        android:fontFamily="@font/nunito_regular"
+        app:layout_constraintStart_toStartOf="@+id/tvJurnalTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJurnalTitle" />
+
+    <!-- Filter Cuaca Hati (Materi Pertemuan 9) -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupCuacaHati"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:singleSelection="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJurnalDesc">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSemua"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Semua"
+            app:chipBackgroundColor="#E3EEF7"
+            android:textColor="@color/navy_blue" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipCerah"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Cerah"
+            app:chipBackgroundColor="#E3EEF7"
+            android:textColor="@color/navy_blue" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipBerawan"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Berawan"
+            app:chipBackgroundColor="#E3EEF7"
+            android:textColor="@color/navy_blue" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipBadai"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Badai"
+            app:chipBackgroundColor="#E3EEF7"
+            android:textColor="@color/navy_blue" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Tempat Menampilkan Daftar Jurnal -->
+    <ListView
+        android:id="@+id/listViewJurnal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroupCuacaHati" />
+
+    <!-- Tombol Tambah Jurnal (Floating Action Button) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabTambahJurnal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/ic_edit"
+        app:backgroundTint="@color/navy_blue"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,15 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg1"
+    android:background="#FAF9F4"
     tools:context=".beranda.BerandaFragment">
+
+    <!-- Background Header Melengkung -->
+    <View
+        android:id="@+id/background_header"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:background="@drawable/bg_header_wave"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--Toolbar-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMain"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/navy_blue"
+        android:background="@android:color/transparent"
         app:title="Beranda Feelio"
         app:titleTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,10 +35,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="#66FFFFFF"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
-        app:cardElevation="0dp"
+        app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarMain">
@@ -59,19 +69,89 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <!-- Judul Ruang Tenang -->
+    <TextView
+        android:id="@+id/tvRuangTenang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ruang Tenang"
+        android:textColor="@color/navy_blue"
+        android:textSize="16sp"
+        android:fontFamily="@font/nunito_bold"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardProfile" />
+
+    <!-- GridLayout Menu Ruang Tenang -->
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridRuangTenang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        app:columnCount="2"
+        app:useDefaultMargins="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRuangTenang">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNapasKotak"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:text="Napas Kotak"
+            android:textColor="@color/navy_blue"
+            android:fontFamily="@font/nunito_bold"
+            app:backgroundTint="#E3EEF7"
+            app:cornerRadius="12dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            app:strokeColor="@color/navy_blue"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGrounding"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:text="Grounding"
+            android:textColor="@color/navy_blue"
+            android:fontFamily="@font/nunito_bold"
+            app:backgroundTint="#E3EEF7"
+            app:cornerRadius="12dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            app:strokeColor="@color/navy_blue"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSuaraAlam"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:text="Suara Alam"
+            android:textColor="@color/navy_blue"
+            android:fontFamily="@font/nunito_bold"
+            app:backgroundTint="#E3EEF7"
+            app:cornerRadius="12dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            app:strokeColor="@color/navy_blue"
+            app:strokeWidth="1dp" />
+    </androidx.gridlayout.widget.GridLayout>
+
     <!--Judul Artikel-->
     <TextView
         android:id="@+id/txtHeaderArtikel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/nunito_bold"
         android:text="Baca Artikel Story di Sini!"
         android:textColor="@color/navy_blue"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/gridRuangTenang" />
 
     <ListView
         android:id="@+id/listViewArtikel"
@@ -92,7 +172,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,18 +181,18 @@
         <Button
             android:id="@+id/btnDetail"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="48dp"
             android:backgroundTint="@color/navy_blue"
             android:fontFamily="@font/nunito_bold"
             android:text="Lihat Detail Projek"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:cornerRadius="12dp" />
 
         <Button
             android:id="@+id/btnSnackBar"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="48dp"
             android:layout_marginTop="8dp"
             android:backgroundTint="#80FFFFFF"
             android:fontFamily="@font/nunito_bold"
@@ -125,7 +205,7 @@
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="48dp"
             android:layout_marginTop="8dp"
             android:backgroundTint="#D64545"
             android:fontFamily="@font/nunito_bold"

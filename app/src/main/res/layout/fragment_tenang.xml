@@ -1,34 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FAF9F4"
     tools:context=".tenang.TenangFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
+    <!-- Judul Halaman -->
+    <TextView
+        android:id="@+id/tvTitleTenang"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:text="Ruang Tenang"
+        android:textColor="@color/navy_blue"
+        android:textSize="24sp"
+        android:fontFamily="@font/nunito_bold"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarTenang"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/navy_blue"
-            app:title="Ruang Tenang"
-            app:titleTextColor="@color/white"
-            app:layout_scrollFlags="scroll|enterAlways" />
+    <TextView
+        android:id="@+id/tvDescTenang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:text="Pilih latihan untuk menenangkan pikiran dan meredakan kecemasan."
+        android:textColor="#555555"
+        android:textSize="14sp"
+        android:fontFamily="@font/nunito_regular"
+        app:layout_constraintStart_toStartOf="@+id/tvTitleTenang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleTenang" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+    <!-- GridLayout untuk Menu Petak (Materi Pertemuan 9) -->
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridMenuTenang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        app:columnCount="2"
+        app:useDefaultMargins="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescTenang">
 
-    <ListView
-        android:id="@+id/listViewTenang"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <!-- Tombol Menu 1 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNapasKotak"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:text="Napas Kotak"
+            android:textColor="@color/navy_blue"
+            android:fontFamily="@font/nunito_bold"
+            app:backgroundTint="#E3EEF7"
+            app:cornerRadius="16dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            app:strokeColor="@color/navy_blue"
+            app:strokeWidth="1dp" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <!-- Tombol Menu 2 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGrounding"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:text="Grounding"
+            android:textColor="@color/navy_blue"
+            android:fontFamily="@font/nunito_bold"
+            app:backgroundTint="#E3EEF7"
+            app:cornerRadius="16dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            app:strokeColor="@color/navy_blue"
+            app:strokeWidth="1dp" />
+
+        <!-- Tombol Menu 3 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSuaraAlam"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:text="Suara Alam"
+            android:textColor="@color/navy_blue"
+            android:fontFamily="@font/nunito_bold"
+            app:backgroundTint="#E3EEF7"
+            app:cornerRadius="16dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            app:strokeColor="@color/navy_blue"
+            app:strokeWidth="1dp" />
+
+        <!-- Tombol Menu 4 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMeditasi"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:text="Meditasi Singkat"
+            android:textColor="@color/navy_blue"
+            android:fontFamily="@font/nunito_bold"
+            app:backgroundTint="#E3EEF7"
+            app:cornerRadius="16dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            app:strokeColor="@color/navy_blue"
+            app:strokeWidth="1dp" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

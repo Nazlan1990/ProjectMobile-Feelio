@@ -8,16 +8,20 @@
     android:background="@drawable/bg1"
     tools:context=".LoginActivity">
 
+    <!-- PENYESUAIAN: Ditambahkan ikatan ke bawah (Bottom_toTopOf) dan Chain Style -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.3"
         app:srcCompat="@drawable/logo" />
 
+    <!-- PENYESUAIAN: Ditambahkan ikatan ke bawah (Bottom_toTopOf) -->
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -30,11 +34,13 @@
         android:fontFamily="@font/nunito_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewLogin" />
 
+    <!-- PENYESUAIAN: Ditambahkan ikatan ke dasar layar (Bottom_toBottomOf) -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewLogin"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="24dp"
@@ -43,65 +49,56 @@
         app:cardBackgroundColor="#66FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="24dp">
+            android:padding="24dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Username"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="@font/nunito_bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/edtUsername"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilUsername"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:ems="10"
-                android:hint="Masukkan Username"
-                android:inputType="text"
-                android:textColorHint="#444444"
-                android:fontFamily="@font/nunito_regular"
-                android:backgroundTint="@color/black"
+                android:hint="Username"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:fontFamily="@font/nunito_regular"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Password"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="@font/nunito_bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtUsername" />
-
-            <EditText
-                android:id="@+id/edtPassword"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:ems="10"
-                android:hint="******"
-                android:inputType="textPassword"
-                android:textColorHint="#444444"
-                android:fontFamily="@font/nunito_regular"
-                android:backgroundTint="@color/black"
+                android:hint="Password"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/tilUsername">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/nunito_regular"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <CheckBox
                 android:id="@+id/checkBox"
@@ -112,7 +109,7 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/nunito_regular"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
 
             <TextView
                 android:id="@+id/tvLupaPassword"
@@ -126,58 +123,28 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/checkBox" />
 
-            <Button
+            <!-- Tombol Login -->
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="24dp"
                 android:backgroundTint="#405A7D"
                 android:text="Login"
                 android:textColor="@color/white"
                 android:fontFamily="@font/nunito_bold"
-                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_login"
+                app:iconGravity="textEnd"
+                app:iconTint="@color/white"
+                app:cornerRadius="15dp"
+                app:strokeColor="#26324A"
+                app:strokeWidth="2dp"
+                app:rippleColor="#003B95"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
-            <Button
-                android:id="@+id/btnGoogle"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="12dp"
-                android:backgroundTint="#80FFFFFF"
-                android:text="Google"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nunito_bold"
-                app:cornerRadius="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-                app:strokeColor="#405A7D"
-                app:strokeWidth="1dp"
-                app:icon="@drawable/ic_google"
-                app:iconTint="@null"
-                app:iconGravity="textStart"
-                app:iconPadding="10dp" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/tvDaftar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Belum punya akun? Daftar di sini"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:fontFamily="@font/nunito_bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:shadowColor="#80000000"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
