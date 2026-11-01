@@ -1,15 +1,17 @@
 package com.example.nazlan_3tib
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.example.nazlan_3tib.databinding.ActivityMainBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
+import com.example.nazlan_3tib.beranda.BerandaFragment
+import com.example.nazlan_3tib.insight.InsightFragment
+import com.example.nazlan_3tib.jurnal.JurnalFragment
+import com.example.nazlan_3tib.profil.ProfilFragment
+import com.example.nazlan_3tib.tenang.TenangFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,53 +24,45 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbarMain)
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
 
-        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
-        val user = sharedPref.getString("username", "User")
-        val umur = intent.getIntExtra("umur", 0)
+        replaceFragment(BerandaFragment())
 
-        Log.v("Hasil", "umur $umur")
-
-        binding.txtUsername.text = "User: $user"
-
-        binding.btnSnackBar.setOnClickListener {
-            Snackbar.make(binding.root, "Tugas SnackBar Selesai!", Snackbar.LENGTH_LONG)
-                .setAction("TUTUP") {
-                    // Aksi jika tombol di SnackBar ditekan
+        binding.bottomNavView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_beranda -> {
+                    replaceFragment(BerandaFragment())
+                    true
                 }
-                .show()
-        }
-
-        binding.btnLogout.setOnClickListener {
-            MaterialAlertDialogBuilder(this)
-                .setTitle("Konfirmasi LogOut")
-                .setMessage("Apakah Anda yakin ingin keluar dari akun ini?")
-                .setNegativeButton("Tidak") { dialog, _ ->
-                    dialog.dismiss()
+                R.id.nav_jurnal -> {
+                    replaceFragment(JurnalFragment())
+                    true
                 }
-                .setPositiveButton("Ya") { dialog, _ ->
-                    val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
-                    sharedPref.edit().clear().apply()
-
-                    val intent = Intent(this, LoginActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                    finish()
+                R.id.nav_tenang -> {
+                    replaceFragment(TenangFragment())
+                    true
                 }
-                .setCancelable(false)
-                .show()
+                R.id.nav_insight -> {
+                    replaceFragment(InsightFragment())
+                    true
+                }
+                R.id.nav_profil -> {
+                    replaceFragment(ProfilFragment())
+                    true
+                }
+                else -> false // false jika item tidak dikenal
+            }
         }
+    }
 
-        binding.btnDetail.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
-            startActivity(intent)
-        }
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(binding.fragmentContainer.id, fragment)
+            // .addToBackStack(null) sengaja dinonaktifkan: saat back langsung keluar aplikasi
+            .commit()
     }
 }

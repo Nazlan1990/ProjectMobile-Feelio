@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_beranda"
+        android:icon="@drawable/ic_beranda"
+        android:title="Beranda" />
+    <item
+        android:id="@+id/nav_jurnal"
+        android:icon="@drawable/ic_jurnal"
+        android:title="Jurnal" />
+    <item
+        android:id="@+id/nav_tenang"
+        android:icon="@drawable/ic_tenang"
+        android:title="Tenang" />
+    <item
+        android:id="@+id/nav_insight"
+        android:icon="@drawable/ic_insight"
+        android:title="Insight" />
+    <item
+        android:id="@+id/nav_profil"
+        android:icon="@drawable/ic_profil"
+        android:title="Profil" />
+</menu>

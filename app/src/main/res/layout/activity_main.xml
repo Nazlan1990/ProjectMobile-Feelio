@@ -8,113 +8,23 @@
     android:background="@drawable/bg1"
     tools:context=".MainActivity">
 
-    <!--Toolbar-->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarMain"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/navy_blue"
-        app:title="Beranda Feelio"
-        app:titleTextColor="@color/white"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardProfile"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="#66FFFFFF"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMain">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_regular"
-                android:text="Selamat datang kembali,"
-                android:textColor="#333333"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/txtUsername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_bold"
-                android:text="User"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <ImageView
-        android:id="@+id/imgCenterLogo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/layoutButtons"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardProfile"
-        app:srcCompat="@drawable/logo" />
-
-    <LinearLayout
-        android:id="@+id/layoutButtons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginBottom="48dp"
-        android:orientation="vertical"
+        app:backgroundTint="@color/white"
+        app:itemIconTint="@color/navy_blue"
+        app:itemTextColor="@color/navy_blue"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/btnDetail"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:backgroundTint="@color/navy_blue"
-            android:fontFamily="@font/nunito_bold"
-            android:text="Lihat Detail Projek"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:cornerRadius="12dp" />
-
-        <Button
-            android:id="@+id/btnSnackBar"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="#80FFFFFF"
-            android:fontFamily="@font/nunito_bold"
-            android:text="Tampilkan SnackBar"
-            android:textColor="@color/navy_blue"
-            app:cornerRadius="12dp"
-            app:strokeColor="@color/navy_blue"
-            app:strokeWidth="1dp" />
-
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="@color/crimson"
-            android:fontFamily="@font/nunito_bold"
-            android:text="LogOut"
-            android:textColor="@color/white"
-            app:cornerRadius="12dp" />
-
-    </LinearLayout>
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
