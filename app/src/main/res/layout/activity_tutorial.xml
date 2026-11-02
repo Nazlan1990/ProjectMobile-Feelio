@@ -5,27 +5,56 @@
     android:layout_height="match_parent"
     android:background="#FAF9F4">
 
-    <!-- ViewPager2 untuk menggeser halaman -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerTutorial"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/dotIndicator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- DotsIndicator (Titik penanda dari Pertemuan 9) -->
+    <!-- Tombol Lewati -->
+    <TextView
+        android:id="@+id/btnLewati"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Lewati"
+        android:textColor="@color/navy_blue"
+        android:fontFamily="@font/nunito_bold"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- DotsIndicator -->
     <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
         android:id="@+id/dotIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="24dp"
         app:dotsColor="#BDBDBD"
         app:selectedDotColor="@color/navy_blue"
         app:dotsCornerRadius="8dp"
         app:dotsSpacing="6dp"
         app:progressMode="true"
+        app:layout_constraintBottom_toTopOf="@+id/btnLanjut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Tombol Lanjut / Mulai -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLanjut"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="32dp"
+        android:text="Lanjut"
+        android:fontFamily="@font/nunito_bold"
+        android:textSize="16sp"
+        app:backgroundTint="@color/navy_blue"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

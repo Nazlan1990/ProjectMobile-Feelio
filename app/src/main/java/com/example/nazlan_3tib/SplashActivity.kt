@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.nazlan_3tib.tutorial.TutorialActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -31,7 +32,8 @@ class SplashActivity : AppCompatActivity() {
             if (isLogin) {
                 startActivity(Intent(this@SplashActivity, MainActivity::class.java))
             } else {
-                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                // Ubah baris ini: arahkan ke Tutorial Screen lebih dulu, bukan langsung ke Login
+                startActivity(Intent(this@SplashActivity, TutorialActivity::class.java))
             }
 
             finish()
